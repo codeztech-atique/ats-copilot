@@ -4,5 +4,8 @@ __pycache__/
 .env
 resumes/*
 !resumes/.gitkeep
+jobs/*
+!jobs/README.md
+!jobs/sample_job.md
 reports/
 .DS_Store
