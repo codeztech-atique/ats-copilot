@@ -50,13 +50,11 @@ inlined into the prompt.
 ## Project layout
 
 ```
-ATS-Score/
+ATS-Copilot/
 ├── resumes/                  # drop your resume here (PDF / DOCX / TXT)
 ├── jobs/                     # drop job postings here (.md / .txt)
 │   ├── README.md             # job-file format guide
-│   ├── sample_job.md
-│   ├── ai_engineer_remote.md
-│   └── engineering_manager_blr.md
+│   └── sample_job.md         # template you can copy
 ├── reports/                  # generated markdown reports (gitignored)
 │   ├── _summary.md           # ranked summary from `score`
 │   ├── recommendations.md    # from `recommend`
@@ -85,7 +83,8 @@ ATS-Score/
 ## Setup
 
 ```bash
-cd ATS-Score
+git clone https://github.com/codeztech-atique/ats-copilot.git
+cd ats-copilot
 
 # 1. Create a Python 3.10+ virtualenv
 python3.12 -m venv .venv          # or python3.10 / python3.11
@@ -176,8 +175,7 @@ will score your resume against **every** one and rank them.
 
 See the bundled examples:
 - [`jobs/sample_job.md`](./jobs/sample_job.md)
-- [`jobs/ai_engineer_remote.md`](./jobs/ai_engineer_remote.md)
-- [`jobs/engineering_manager_blr.md`](./jobs/engineering_manager_blr.md)
+
 
 ## Usage
 
@@ -194,26 +192,26 @@ python -m src.score
 ### Example `score` output
 
 ```
-[info] resume: Atique_Resume.pdf
+[info] resume: your_resume.pdf
 [info] scoring 3 job posting(s)...
 
-  -> ai_engineer_remote.md  (Staff AI Engineer - Agentic Systems - Remote - Global)
-     score=82.0%  chance=Very High  ->  reports/score_staff_ai_engineer_-_agentic_systems.md
+  -> job_a.md  (Staff AI Engineer - Remote - Global)
+     score=82.0%  chance=Very High  ->  reports/score_staff_ai_engineer.md
 
-  -> engineering_manager_blr.md  (Engineering Manager - Platform - Bangalore, India (Hybrid))
-     score=80.0%  chance=High  ->  reports/score_engineering_manager_-_platform.md
+  -> job_b.md  (Engineering Manager - Bangalore, India)
+     score=75.0%  chance=High      ->  reports/score_engineering_manager.md
 
   -> sample_job.md  (Senior Backend Engineer - Remote - US)
-     score=70.0%  chance=Medium  ->  reports/score_senior_backend_engineer.md
+     score=60.0%  chance=Medium    ->  reports/score_senior_backend_engineer.md
 
 ================================================================================
-# ATS Score Summary - Atique_Resume.pdf
+# ATS Score Summary
 
-| Rank | Job Title                            | Location                  | Score  | Shortlist Chance |
-|------|--------------------------------------|---------------------------|--------|------------------|
-|   1  | Staff AI Engineer - Agentic Systems  | Remote - Global           | 82.0%  | Very High        |
-|   2  | Engineering Manager - Platform       | Bangalore, India (Hybrid) | 80.0%  | High             |
-|   3  | Senior Backend Engineer              | Remote - US               | 70.0%  | Medium           |
+| Rank | Job Title                | Location                  | Score  | Shortlist Chance |
+|------|--------------------------|---------------------------|--------|------------------|
+|   1  | Staff AI Engineer        | Remote - Global           | 82.0%  | Very High        |
+|   2  | Engineering Manager      | Bangalore, India          | 75.0%  | High             |
+|   3  | Senior Backend Engineer  | Remote - US               | 60.0%  | Medium           |
 ```
 
 ## Scoring methodology
