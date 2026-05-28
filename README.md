@@ -1,4 +1,4 @@
-# ATS Score Agent
+# ATS Copilot
 
 A backend-only Python agent that scores your resume against job postings the
 way **Workday / Greenhouse / LinkedIn** ATS rankers do, and recommends what
